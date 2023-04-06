@@ -18,8 +18,13 @@ namespace mission14API.Controllers
         }
         public IEnumerable<MovieCollection> Get()
         {
-            
-            return context.Movies.ToArray();
+            var x = context.Movies
+                
+                .Where(x => x.Edited == "Yes")
+                .OrderBy(x => x.Title)
+                
+                .ToArray();
+            return x;
         }
     }
 }
